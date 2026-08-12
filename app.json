@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "Água",
+    "slug": "water-tracker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "watertracker",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.matheus.watertracker"
+    },
+    "android": {
+      "package": "com.matheus.watertracker",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      [
+        "expo-notifications",
+        {
+          "color": "#2E90FA"
+        }
+      ],
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "f5ba2d62-2e4c-486f-beaf-25c49424e78b"
+      }
+    }
+  }
+}
