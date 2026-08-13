@@ -2,6 +2,16 @@
 
 Clone pessoal do WaterMinder para Android. Expo SDK 57 + TypeScript, dados 100% locais (SQLite no aparelho, sem backend e sem conta).
 
+## Baixar
+
+### [⬇️ APK — v1.0.0](https://github.com/TheusSales/water-tracker/releases/latest)
+
+Android 7+. Como não vem da Play Store, o Android vai pedir autorização para "instalar apps desconhecidos" ao abrir o `.apk` pelo navegador ou gerenciador de arquivos.
+
+Sem anúncios, sem paywall, sem conta e sem telemetria — o app não faz nenhuma chamada de rede e tudo vive no SQLite do aparelho.
+
+> Uma ressalva honesta: o `AndroidManifest` **declara** `INTERNET`, `ACCESS_NETWORK_STATE` e permissões de badge/FCM. Nada disso é escolha do app — o React Native inclui `INTERNET` por padrão e o `expo-notifications` traz as demais. O código não exercita nenhuma delas; dá para conferir em `src/`, não há um único `fetch`.
+
 ## Funcionalidades
 
 - **Hoje** — anel de progresso animado, atalhos de 1 toque para registrar, lista dos registros do dia com remoção.
