@@ -3,7 +3,15 @@ import { Platform } from 'react-native';
 
 import type { Settings } from '@/db/queries';
 
-export const ANDROID_CHANNEL_ID = 'reminders';
+/**
+ * Android channels are immutable once created, so giving reminders a custom
+ * sound meant a new channel id. The old one is deleted on setup.
+ */
+export const ANDROID_CHANNEL_ID = 'reminders-water';
+const LEGACY_CHANNEL_IDS = ['reminders'];
+
+/** Bundled via the expo-notifications config plugin (`sounds` in app.json). */
+const REMINDER_SOUND = 'water_drop.wav';
 
 /** Android caps scheduled alarms; a sane ceiling keeps us far below it. */
 const MAX_SLOTS = 24;
@@ -32,7 +40,12 @@ export async function setupAndroidChannel(): Promise<void> {
     importance: Notifications.AndroidImportance.DEFAULT,
     vibrationPattern: [0, 200, 150, 200],
     lightColor: '#2E90FA',
+    sound: REMINDER_SOUND,
   });
+
+  for (const id of LEGACY_CHANNEL_IDS) {
+    await Notifications.deleteNotificationChannelAsync(id);
+  }
 }
 
 export async function requestPermissions(): Promise<boolean> {
@@ -89,6 +102,7 @@ export async function rescheduleReminders(settings: Settings): Promise<number> {
       content: {
         title: MESSAGES[i % MESSAGES.length],
         body: 'Toque para registrar o que você bebeu.',
+        sound: REMINDER_SOUND,
         ...(Platform.OS === 'android' ? { channelId: ANDROID_CHANNEL_ID } : null),
       },
       trigger: {

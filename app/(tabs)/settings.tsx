@@ -26,6 +26,7 @@ import {
 import { formatVolume } from '@/lib/date';
 import { rescheduleReminders } from '@/lib/notifications';
 import { colors, radius, shadow, spacing } from '@/lib/theme';
+import { refreshWidget } from '@/widget/refresh';
 
 /** Typed against the glyph map so a bad icon name fails at compile time. */
 const ICON_CHOICES: ReadonlyArray<keyof typeof MaterialCommunityIcons.glyphMap> = [
@@ -106,6 +107,7 @@ export default function SettingsScreen() {
       return;
     }
     await patchSettings({ goalMl: parsed });
+    refreshWidget(db);
   }
 
   async function handleAddContainer() {
@@ -118,6 +120,7 @@ export default function SettingsScreen() {
     setNewLabel('');
     setNewAmount('');
     await load();
+    refreshWidget(db);
   }
 
   async function handleDeleteContainer(container: Container) {
@@ -133,6 +136,7 @@ export default function SettingsScreen() {
         onPress: async () => {
           await deleteContainer(db, container.id);
           await load();
+          refreshWidget(db);
         },
       },
     ]);

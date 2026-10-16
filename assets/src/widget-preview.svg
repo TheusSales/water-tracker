@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220" font-family="Roboto, Noto Sans, sans-serif">
+  <rect width="500" height="220" rx="48" fill="#FFFFFF"/>
+  <path fill="#2E90FA" d="M40 28 C40 28 28 42 28 51 C28 57.6 33.4 63 40 63 C46.6 63 52 57.6 52 51 C52 42 40 28 40 28 Z"/><text x="62" y="56" font-size="30" font-weight="700" fill="#101828">1,2 L / 2,5 L</text>
+  <text x="472" y="56" font-size="27" font-weight="700" fill="#1570CF" text-anchor="end">50%</text>
+  <rect x="28" y="82" width="444" height="16" rx="8" fill="#E7F0FA"/>
+  <rect x="28" y="82" width="222" height="16" rx="8" fill="#2E90FA"/>
+  <g font-weight="700" font-size="21" fill="#1570CF" text-anchor="middle">
+    <rect x="28" y="120" width="99" height="76" rx="28" fill="#D1E9FF"/>
+    <rect x="143" y="120" width="99" height="76" rx="28" fill="#D1E9FF"/>
+    <rect x="258" y="120" width="99" height="76" rx="28" fill="#D1E9FF"/>
+    <rect x="373" y="120" width="99" height="76" rx="28" fill="#D1E9FF"/>
+    <text x="77.5" y="155">+250 ml</text><text x="192.5" y="155">+350 ml</text>
+    <text x="307.5" y="155">+500 ml</text><text x="422.5" y="155">+750 ml</text>
+  </g>
+  <g font-size="18" fill="#667085" text-anchor="middle">
+    <text x="77.5" y="182">Copo</text><text x="192.5" y="182">Caneca</text>
+    <text x="307.5" y="182">Garrafa</text><text x="422.5" y="182">Garrafão</text>
+  </g>
+</svg>

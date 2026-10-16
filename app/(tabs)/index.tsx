@@ -1,8 +1,9 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useFocusEffect } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
+  AppState,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -24,6 +25,7 @@ import {
 } from '@/db/queries';
 import { dayKey, formatTime, formatVolume } from '@/lib/date';
 import { colors, radius, shadow, spacing } from '@/lib/theme';
+import { refreshWidget } from '@/widget/refresh';
 
 export default function TodayScreen() {
   const db = useSQLiteContext();
@@ -56,14 +58,25 @@ export default function TodayScreen() {
     }, [load])
   );
 
+  // Coming back from the background doesn't refocus the screen, but the home
+  // screen widget may have logged water meanwhile (or the day may have rolled).
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', (state) => {
+      if (state === 'active') load();
+    });
+    return () => sub.remove();
+  }, [load]);
+
   async function handleAdd(amountMl: number) {
     await addEntry(db, amountMl);
     await load();
+    refreshWidget(db);
   }
 
   async function handleDelete(id: number) {
     await deleteEntry(db, id);
     await load();
+    refreshWidget(db);
   }
 
   const progress = goalMl > 0 ? total / goalMl : 0;

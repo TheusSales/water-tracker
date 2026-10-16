@@ -2,7 +2,7 @@
   "expo": {
     "name": "Água",
     "slug": "water-tracker",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "scheme": "watertracker",
     "icon": "./assets/icon.png",
@@ -14,7 +14,7 @@
     "android": {
       "package": "com.matheus.watertracker",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#EAF5FF",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -31,10 +31,32 @@
       [
         "expo-notifications",
         {
-          "color": "#2E90FA"
+          "color": "#2E90FA",
+          "sounds": [
+            "./assets/sounds/water_drop.wav"
+          ]
         }
       ],
-      "expo-font"
+      "expo-font",
+      [
+        "react-native-android-widget",
+        {
+          "widgets": [
+            {
+              "name": "Hydration",
+              "label": "Água",
+              "description": "Progresso do dia e registro rápido",
+              "minWidth": "250dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 4,
+              "targetCellHeight": 2,
+              "previewImage": "./assets/widget-preview.png",
+              "updatePeriodMillis": 1800000,
+              "resizeMode": "horizontal|vertical"
+            }
+          ]
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

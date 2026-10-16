@@ -4,7 +4,7 @@ Clone pessoal do WaterMinder para Android. Expo SDK 57 + TypeScript, dados 100% 
 
 ## Baixar
 
-### [⬇️ APK — v1.0.0](https://github.com/TheusSales/water-tracker/releases/latest)
+### [⬇️ APK — v1.1.0](https://github.com/TheusSales/water-tracker/releases/latest)
 
 Android 7+. Como não vem da Play Store, o Android vai pedir autorização para "instalar apps desconhecidos" ao abrir o `.apk` pelo navegador ou gerenciador de arquivos.
 
@@ -17,6 +17,8 @@ Sem anúncios, sem paywall, sem conta e sem telemetria — o app não faz nenhum
 - **Hoje** — anel de progresso animado, atalhos de 1 toque para registrar, lista dos registros do dia com remoção.
 - **Histórico** — gráfico de barras de 7 ou 30 dias com linha de meta, sequência de dias batendo a meta, média diária.
 - **Ajustes** — meta diária, copos personalizados (nome, volume, ícone) e lembretes.
+- **Widget** — progresso do dia e botões com os seus copos para registrar sem abrir o app. Segure na tela inicial → Widgets → Água.
+- **Lembretes com som de gota** — som próprio (`assets/sounds/water_drop.wav`); para trocar, substitua o arquivo mantendo o nome.
 
 ## Rodando em desenvolvimento
 
@@ -25,7 +27,7 @@ npm start          # Metro; escaneie o QR com o Expo Go
 npm run typecheck  # tsc --noEmit
 ```
 
-> Os lembretes **não disparam no Expo Go** no Android (limitação do SDK 53+). Para testá-los, use o APK.
+> Os lembretes, o som personalizado e o widget **não funcionam no Expo Go**. Para testá-los, use o APK.
 
 ## Gerando o APK
 
@@ -56,6 +58,9 @@ src/
   lib/notifications.ts agendamento dos lembretes
   lib/theme.ts         cores, espaçamentos, sombras
   components/          ProgressRing, BarChart
+  widget/              widget Android (layout, task handler headless, refresh)
+index.ts               entrada: expo-router + registro do widget
+assets/src/            SVGs de origem do ícone e da prévia do widget
 ```
 
 ## Decisões que valem lembrar
