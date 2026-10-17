@@ -1,10 +1,11 @@
 {
   "name": "water-tracker",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "index.ts",
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
     "expo": "~57.0.12",
+    "expo-build-properties": "~57.0.22",
     "expo-constants": "~57.0.10",
     "expo-device": "~57.0.1",
     "expo-font": "~57.0.1",

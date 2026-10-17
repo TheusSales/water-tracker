@@ -4,7 +4,7 @@ Clone pessoal do WaterMinder para Android. Expo SDK 57 + TypeScript, dados 100% 
 
 ## Baixar
 
-### [⬇️ APK — v1.1.0](https://github.com/TheusSales/water-tracker/releases/latest)
+### [⬇️ APK — v1.1.1](https://github.com/TheusSales/water-tracker/releases/latest)
 
 Android 7+. Como não vem da Play Store, o Android vai pedir autorização para "instalar apps desconhecidos" ao abrir o `.apk` pelo navegador ou gerenciador de arquivos.
 
